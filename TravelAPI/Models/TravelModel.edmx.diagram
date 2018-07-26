@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="497798f8e5bb4c2aa923eec4a72b4953" Name="Diagram1">
+        <EntityTypeShape EntityType="BTModel.Booking" Width="1.5" PointX="2.875" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.BookingPlace" Width="1.5" PointX="0.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.Master" Width="1.5" PointX="0.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.MasterType" Width="1.5" PointX="0.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.MstRole" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.Package" Width="1.5" PointX="4.875" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.PackagePlace" Width="1.5" PointX="6.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.Participant" Width="1.5" PointX="7.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.Payment" Width="1.5" PointX="6.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.ToDoList" Width="1.5" PointX="5.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTModel.User" Width="1.5" PointX="3.5" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="BTModel.FK_Booking_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_Booking_Master1" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_BookingPlace_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_Participant_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_Payment_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_ToDoList_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_BookingPlace_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_Master_MasterType" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_Package_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_PackagePlace_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK__User__Role_ID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_PackagePlace_Package" ManuallyRouted="false" />
+        <AssociationConnector Association="BTModel.FK_ToDoList_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingTypeId" Type="int" />
+    <Property Name="TourStartDate" Type="datetime" />
+    <Property Name="TourEndDate" Type="datetime" />
+    <Property Name="VehicalTypeID" Type="int" />
+    <Property Name="SeatingCapacity" Type="int" />
+    <Property Name="HiringCondition" Type="varchar(max)" />
+    <Property Name="NoOfSeats" Type="int" />
+    <Property Name="Adults" Type="int" />
+    <Property Name="Children" Type="int" />
+    <Property Name="Transportation" Type="varchar(max)" />
+    <Property Name="Food" Type="varchar(max)" />
+    <Property Name="Accomodation" Type="varchar(max)" />
+    <Property Name="IsPerSeat" Type="bit" />
+  </EntityType>
+  <EntityType Name="BookingPlace">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingID" Type="int" Nullable="false" />
+    <Property Name="PlaceID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastMofiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="MstTypeID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MasterType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MstType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MstRole">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubCatID" Type="int" Nullable="false" />
+    <Property Name="Fare" Type="float" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PackagePlace">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackageID" Type="int" Nullable="false" />
+    <Property Name="PlaceID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Participant">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="SeatNo" Type="int" />
+    <Property Name="ContactNo1" Type="varchar" MaxLength="100" />
+    <Property Name="ContactNo2" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="BookingID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingID" Type="int" />
+    <Property Name="AgreedAmount" Type="float" Nullable="false" />
+    <Property Name="TotalAmount" Type="float" Nullable="false" />
+    <Property Name="AdvanceAmount" Type="float" />
+    <Property Name="BalanceAmount" Type="float" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ToDoList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="BookingID" Type="int" />
+    <Property Name="ReminderText" Type="date" Nullable="false" />
+    <Property Name="CustomerRemarks" Type="varchar(max)" />
+    <Property Name="RemindDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Role_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK__User__Role_ID__2F10007B">
+    <End Role="MstRole" Type="Self.MstRole" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MstRole">
+        <PropertyRef Name="Role_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="BookingTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Master1">
+    <End Role="Master" Type="Self.Master" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="VehicalTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingPlace_Booking">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+    <End Role="BookingPlace" Type="Self.BookingPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BookingPlace">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingPlace_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="1" />
+    <End Role="BookingPlace" Type="Self.BookingPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BookingPlace">
+        <PropertyRef Name="PlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Master_MasterType">
+    <End Role="MasterType" Type="Self.MasterType" Multiplicity="1" />
+    <End Role="Master" Type="Self.Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Master">
+        <PropertyRef Name="MstTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="1" />
+    <End Role="Package" Type="Self.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="SubCatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackagePlace_Master">
+    <End Role="Master" Type="Self.Master" Multiplicity="1" />
+    <End Role="PackagePlace" Type="Self.PackagePlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PackagePlace">
+        <PropertyRef Name="PlaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PackagePlace_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="1" />
+    <End Role="PackagePlace" Type="Self.PackagePlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PackagePlace">
+        <PropertyRef Name="PackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participant_Booking">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+    <End Role="Participant" Type="Self.Participant" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Booking">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ToDoList_Booking">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+    <End Role="ToDoList" Type="Self.ToDoList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToDoList">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ToDoList_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ToDoList" Type="Self.ToDoList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToDoList">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BTModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookingPlace" EntityType="Self.BookingPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master" EntityType="Self.Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterType" EntityType="Self.MasterType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MstRole" EntityType="Self.MstRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PackagePlace" EntityType="Self.PackagePlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Participant" EntityType="Self.Participant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ToDoList" EntityType="Self.ToDoList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__User__Role_ID__2F10007B" Association="Self.FK__User__Role_ID__2F10007B">
+      <End Role="MstRole" EntitySet="MstRole" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Master" Association="Self.FK_Booking_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Master1" Association="Self.FK_Booking_Master1">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingPlace_Booking" Association="Self.FK_BookingPlace_Booking">
+      <End Role="Booking" EntitySet="Booking" />
+      <End Role="BookingPlace" EntitySet="BookingPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingPlace_Master" Association="Self.FK_BookingPlace_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="BookingPlace" EntitySet="BookingPlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Master_MasterType" Association="Self.FK_Master_MasterType">
+      <End Role="MasterType" EntitySet="MasterType" />
+      <End Role="Master" EntitySet="Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_Master" Association="Self.FK_Package_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackagePlace_Master" Association="Self.FK_PackagePlace_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="PackagePlace" EntitySet="PackagePlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PackagePlace_Package" Association="Self.FK_PackagePlace_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="PackagePlace" EntitySet="PackagePlace" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participant_Booking" Association="Self.FK_Participant_Booking">
+      <End Role="Booking" EntitySet="Booking" />
+      <End Role="Participant" EntitySet="Participant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Booking" Association="Self.FK_Payment_Booking">
+      <End Role="Booking" EntitySet="Booking" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ToDoList_Booking" Association="Self.FK_ToDoList_Booking">
+      <End Role="Booking" EntitySet="Booking" />
+      <End Role="ToDoList" EntitySet="ToDoList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ToDoList_User" Association="Self.FK_ToDoList_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ToDoList" EntitySet="ToDoList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
